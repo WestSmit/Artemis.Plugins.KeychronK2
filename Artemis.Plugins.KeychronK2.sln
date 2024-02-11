@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33829.357
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Artemis.Plugins.KeychronK2", "Artemis.Plugins.KeychronK2.csproj", "{0A2C89C7-36C4-4C38-BBFA-C96770574A5A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Artemis.Plugins.KeychronK2", ".\Artemis.Plugins.KeychronK2\Artemis.Plugins.KeychronK2.csproj", "{0A2C89C7-36C4-4C38-BBFA-C96770574A5A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KeychronLegacyLighting", "..\KeychronLegacyLighting\KeychronLegacyLighting.csproj", "{C516221C-5ADB-4ACE-9D66-71ECE2C03960}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KeychronLegacyLighting", ".\KeychronLegacyLighting\KeychronLegacyLighting.csproj", "{C516221C-5ADB-4ACE-9D66-71ECE2C03960}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
