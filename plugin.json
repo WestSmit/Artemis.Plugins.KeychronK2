@@ -1,0 +1,15 @@
+{
+  "Guid": "5F7CCE3E-C955-4135-9F9E-333B26F1781D",
+  "Name": "Keychron K2 Device Provider",
+  "Description": "Keychron K2 Device Provider",
+  "Author": "WestSmit",
+  "Website": "",
+  "Repository": "",
+  "Icon": "Keyboard",
+  "Version": "1.0.0.0",
+  "Main": "Artemis.Plugins.KeychronK2.dll",
+  "AutoEnableProperties": true,
+  "RequiresAdmin": false,
+  "Platforms": "Windows",
+  "Api": "1.0.0"
+}

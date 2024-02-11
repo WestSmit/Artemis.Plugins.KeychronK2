@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+      <TargetFramework>net7.0-windows</TargetFramework>
+      <Platforms>x64</Platforms>
+      <EnableDynamicLoading>true</EnableDynamicLoading>
+      <ProduceReferenceAssembly>false</ProduceReferenceAssembly>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      <LangVersion>preview</LangVersion>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      <LangVersion>preview</LangVersion>
+    </PropertyGroup>
+    <ItemGroup>
+      <None Remove="Layouts\Keychron\Keyboard\Keychron K2 RGB-ANSI.xml" />
+      <None Remove="Layouts\Keychron\Keyboard\KeychronK2.png" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="ArtemisRGB.UI.Shared" IncludeAssets="compile;build;buildTransitive" Version="1.2024.130.4" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Content Include="Layouts\Keychron\Keyboard\Keychron K2 RGB-ANSI.xml">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+        <Content Include="Layouts\Keychron\Keyboard\KeychronK2.png">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+        <Content Include="plugin.json" CopyToOutputDirectory="PreserveNewest" />
+        <PackageReference Include="ArtemisRGB.Plugins.BuildTask" Version="2.0.0">
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+	</ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\KeychronLegacyLighting\KeychronLegacyLighting.csproj" />
+    </ItemGroup>
+</Project>
