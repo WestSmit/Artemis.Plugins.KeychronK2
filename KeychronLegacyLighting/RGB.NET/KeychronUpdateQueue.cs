@@ -5,14 +5,20 @@ namespace KeychronLegacyLighting.RGB.NET
     internal class KeychronUpdateQueue : UpdateQueue
     {
         private readonly RgbController _controller;
+        private bool _connected;
         public KeychronUpdateQueue(IDeviceUpdateTrigger updateTrigger) : base(updateTrigger)
         {
             _controller = new RgbController(Keyboard.K2);
-            _controller.Connect();
+            _connected = _controller.Connect();
         }
 
         protected override bool Update(in ReadOnlySpan<(object key, Color color)> dataSet)
         {
+            if (!_connected)
+            {
+                return false;
+            }
+
             try
             {
                 foreach ((object key, Color color) in dataSet)

@@ -35,11 +35,28 @@ namespace KeychronLegacyLighting
             }            
         }
 
+        public static Keyboard[] GetConnectedDevices()
+        {
+            return Hid
+                .Enumerate(Keyboard.K2.VendorId, Keyboard.K2.ProductId)
+                .Where(x => x.Path.Contains(Keyboard.K2.HIDPathPrefix))
+                .Select(x => Keyboard.K2)
+                .ToArray();
+        }
+
         public bool Connect()
         {
             var deviceInfo = Hid
                 .Enumerate(keyboard.VendorId, keyboard.ProductId)
-                .FirstOrDefault(x => x.Path == keyboard.HIDPath);
+                .FirstOrDefault(x => x.Path.Contains(keyboard.HIDPathPrefix));
+
+            Console.WriteLine(keyboard.HIDPathPrefix);
+            Console.WriteLine();
+
+            foreach (var item in Hid.Enumerate(keyboard.VendorId, keyboard.ProductId))
+            {
+                Console.WriteLine(item.Path);
+            }
 
             if (deviceInfo == null)
             {
@@ -64,7 +81,7 @@ namespace KeychronLegacyLighting
         {
             if (hidDevice == null)
             {
-                throw new KeychronDeviceException($"Device are not connected: {keyboard.HIDPath}");
+                throw new KeychronDeviceException($"Device are not connected: {keyboard.Name}");
             }
 
             var modesCount = Mode.DefaultModes.Length;
@@ -75,8 +92,6 @@ namespace KeychronLegacyLighting
             var selectedMode = modes.Single(x => x.Value == mode.Value);
 
             selectedMode = mode;
-
-            Console.WriteLine(selectedMode.Value);
 
             SetCustomization(selectedMode.Value == Modes.CUSTOM);
             StartEffectPage();
@@ -154,8 +169,6 @@ namespace KeychronLegacyLighting
                         //    selectedModeBuf[x] = usbBuf[offset + x];
 
                         //}
-
-                        Console.WriteLine(modeToLoad.Value);
 
                         Array.Copy(usbBuf, offset, selectedModeBuf, 0, EffectPageLength);
                     }

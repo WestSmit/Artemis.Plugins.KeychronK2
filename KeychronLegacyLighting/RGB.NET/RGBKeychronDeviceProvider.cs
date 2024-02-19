@@ -1,6 +1,4 @@
-﻿using HidApi;
-using RGB.NET.Core;
-using System.ComponentModel.DataAnnotations;
+﻿using RGB.NET.Core;
 
 namespace KeychronLegacyLighting.RGB.NET
 {
@@ -32,21 +30,18 @@ namespace KeychronLegacyLighting.RGB.NET
 
         protected override IEnumerable<IRGBDevice> LoadDevices()
         {
-            IRGBDevice? device = null;
             try
             {
-                device = new KeychronDevice(new KeychronDeviceInfo(), GetUpdateTrigger(0));
+                return RgbController
+                    .GetConnectedDevices()
+                    .Select(x => new KeychronDevice(new KeychronDeviceInfo(), GetUpdateTrigger()));
             }
             catch (Exception ex)
             {
                 Throw(ex);
             }
 
-
-            if (device != null)
-            {
-                yield return device;
-            }
+            return Enumerable.Empty<IRGBDevice>();
         }
 
         protected override IDeviceUpdateTrigger CreateUpdateTrigger(int id, double updateRateHardLimit)

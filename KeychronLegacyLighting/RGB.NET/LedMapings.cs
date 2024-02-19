@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using RGB.NET.Core;
+﻿using RGB.NET.Core;
 
 namespace KeychronLegacyLighting.RGB.NET;
 
