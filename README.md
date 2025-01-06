@@ -6,8 +6,8 @@
 
 # How to install?
 1. Install Artemis 2 application ([link](https://artemis-rgb.com/))
-2. Download plugin ([link](https://github.com/WestSmit/Artemis.Plugins.KeychronK2/releases/download/artemis/Artemis.Plugins.Keychron2.zip))
+2. Download plugin ([link](https://github.com/WestSmit/Artemis.Plugins.KeychronK2/releases))
 3. Open Artemis 2 > Settings > Plugins > Import plugin
 ![image](https://github.com/WestSmit/Artemis.Plugins.KeychronK2/assets/30203576/045f47a6-cd4c-40ad-b1ec-5100c1969647)
-4. Choose the downloaded archive.
+4. Choose the downloaded archive (Artemis.Plugins.KeychronK2.zip).
 5. Configure your surface and profiles.
