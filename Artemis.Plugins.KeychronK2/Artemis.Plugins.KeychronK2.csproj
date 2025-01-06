@@ -4,6 +4,9 @@
       <Platforms>x64</Platforms>
       <EnableDynamicLoading>true</EnableDynamicLoading>
       <ProduceReferenceAssembly>false</ProduceReferenceAssembly>
+      <AssemblyVersion>1.0.0.2</AssemblyVersion>
+      <FileVersion>1.0.0.2</FileVersion>
+	  <Version>1.0.0.2</Version>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
       <LangVersion>preview</LangVersion>
@@ -11,6 +14,12 @@
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
       <LangVersion>preview</LangVersion>
     </PropertyGroup>
+    <ItemGroup>
+      <AvaloniaXaml Remove="Release\**" />
+      <Compile Remove="Release\**" />
+      <EmbeddedResource Remove="Release\**" />
+      <None Remove="Release\**" />
+    </ItemGroup>
     <ItemGroup>
       <None Remove="Layouts\Keychron\Keyboard\Keychron K2 RGB-ANSI.xml" />
       <None Remove="Layouts\Keychron\Keyboard\KeychronK2.png" />
