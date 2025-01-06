@@ -12,7 +12,7 @@ namespace KeychronLegacyLighting.RGB.NET
             _connected = _controller.Connect();
         }
 
-        protected override bool Update(in ReadOnlySpan<(object key, Color color)> dataSet)
+        protected override bool Update(ReadOnlySpan<(object key, Color color)> dataSet)
         {
             if (!_connected)
             {
